@@ -228,7 +228,7 @@ module ScribdFu
 
     # Display the iPaper document in a view
     def display_ipaper(options = {})
-      <<-END
+      html = <<-END
         <script type="text/javascript" src="http://www.scribd.com/javascripts/view.js"></script>
         <div id="embedded_flash">#{options.delete(:alt)}</div>
         <script type="text/javascript">
@@ -237,6 +237,7 @@ module ScribdFu
           scribd_doc.write("embedded_flash");
         </script>
       END
+	  html.html_safe
     end
 
 
